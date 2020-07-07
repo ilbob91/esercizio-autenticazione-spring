@@ -17,7 +17,7 @@ public class Utente {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idUtente;
 	private String email;
-	private String userName;
+	private String username;
 	private String password;
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "utente_ruolo", joinColumns = @JoinColumn(name = "utente_idUtente"), inverseJoinColumns = @JoinColumn(name = "ruolo_idRuolo"))
@@ -40,12 +40,12 @@ public class Utente {
 		this.email = email;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {

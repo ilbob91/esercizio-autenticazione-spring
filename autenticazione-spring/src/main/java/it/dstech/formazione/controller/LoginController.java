@@ -43,7 +43,7 @@ public class LoginController {
 	@PostMapping(value = "/registrazione")
 	public ModelAndView createNewUser(Utente user, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
-		Utente userExists = userService.findByUsername(user.getUserName());
+		Utente userExists = userService.findByUsername(user.getUsername());
 		if (userExists != null) {
 			bindingResult.rejectValue("user_name", "error.user",
 					"There is already a user registered with the user name provided");
