@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+ <form action="#" th:action="@{/admin/aggiungi}" th:object="${libro}" method="post">
+                            <div class="form-group col-md-6">
+                                <label for="titolo" class="col-form-label">Titolo</label>
+                                <input type="text" th:field="*{titolo}"  id="titolo" placeholder="Titolo">
+                        </div>   
+                        <button class="btn btn-md btn-danger btn-block" name="aggiungi" type="Submit">Aggiungi</button> 
+                    </form>
+</body>
+</html>

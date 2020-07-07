@@ -6,35 +6,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.dstech.formazione.models.Libro;
+import it.dstech.formazione.repositories.LibroRepository;
+
 @Service
 public class LibroServiceDAOImpl implements LibroServiceDAO {
-@Autowired
-private LibroServiceDAO libroService;
+	@Autowired
+	private LibroRepository libroRepository;
 
-@Override
-public Libro save(Libro libro) {
-	
-	return libroService.save(libro);
-}
+	@Override
+	public Libro save(Libro libro) {
 
-@Override
-public void delete(Libro libro) {
-	libroService.delete(libro);
-	
-}
+		return libroRepository.save(libro);
+	}
 
-@Override
-public Libro findById(long id) {
-	
-	return libroService.findById(id);
-}
+	@Override
+	public void delete(Libro libro) {
+		libroRepository.delete(libro);
 
-@Override
-public List<Libro> findAll() {
-	
-	return libroService.findAll();
-}
+	}
 
+	@Override
+	public Libro findById(long id) {
 
+		return libroRepository.findById(id).get();
+	}
+
+	@Override
+	public List<Libro> findAll() {
+
+		return libroRepository.findAll();
+	}
 
 }
