@@ -33,8 +33,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        String loginPage = "/index";
-        String logoutPage = "/index";
+        String loginPage = "/login";
+        String logoutPage = "/logout";
 
         http.
                 authorizeRequests()

@@ -22,7 +22,7 @@ public class LoginController {
 	@Autowired
 	private LibroServiceDAO libroService;
 
-	@GetMapping(value = { "/", "/index" })
+	@GetMapping(value = { "/", "/login" })
 	public ModelAndView login() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("listaLibri", libroService.findAll());
@@ -63,9 +63,7 @@ public class LoginController {
 	}
 
 	@GetMapping(value = "/admin/home")
-
 	public ModelAndView home() {
-
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		Utente user = userService.findByUsername(auth.getName());
@@ -80,7 +78,7 @@ public class LoginController {
 		ModelAndView modelAndView = new ModelAndView();
 		Libro libro = new Libro();
 		modelAndView.addObject("libro", libro);
-		modelAndView.setViewName("nuovo_libro");
+		modelAndView.setViewName("admin/nuovo_libro");
 		return modelAndView;
 	}
 
@@ -88,9 +86,8 @@ public class LoginController {
 	public ModelAndView aggiungiLibro(Libro libro, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
 		libroService.save(libro);
-		modelAndView.addObject("messaggio", "book has been registered successfully");
-		modelAndView.addObject("listaLibri", libroService.findAll());
-		modelAndView.setViewName("index");
+		modelAndView.addObject("adminMessage", "book has been registered successfully");
+		modelAndView.setViewName("admin/home");
 		return modelAndView;
 
 	}
