@@ -6,5 +6,5 @@ import it.dstech.formazione.models.Utente;
 
 public interface UtenteRepository extends JpaRepository<Utente, Long> {
 
-	Utente findByUsername();
+	Utente findByUsername(String username);
 }

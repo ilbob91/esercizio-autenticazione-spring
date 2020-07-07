@@ -22,6 +22,7 @@ public class Utente {
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "utente_ruolo", joinColumns = @JoinColumn(name = "utente_idUtente"), inverseJoinColumns = @JoinColumn(name = "ruolo_idRuolo"))
 	private Set<Ruolo> ruoli;
+	private boolean active;
 
 	public Long getIdUtente() {
 		return idUtente;
@@ -61,6 +62,14 @@ public class Utente {
 
 	public void setRuoli(Set<Ruolo> ruoli) {
 		this.ruoli = ruoli;
+	}
+
+	public boolean getActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 }

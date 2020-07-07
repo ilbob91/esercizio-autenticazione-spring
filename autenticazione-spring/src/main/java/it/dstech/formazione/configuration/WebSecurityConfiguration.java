@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import it.dstech.formazione.service.MyUserDetailsService;
+
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
